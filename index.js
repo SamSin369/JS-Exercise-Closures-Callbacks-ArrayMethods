@@ -149,6 +149,7 @@ function scoreboard(numInnings, cbInning){
     homeTeam  += cbInning()
     inningArr.unshift(totalInnings)
     updatingHome.unshift(homeTeam)
+    
    
     
   }
@@ -156,19 +157,26 @@ function scoreboard(numInnings, cbInning){
     totalInnings ++
     awayTeam  += cbInning()
     updatingAway.unshift(awayTeam)
-    console.log(awayTeam)
+    
     
   }
   
   
+  
+  
    for(i = 0; i < numInnings; i ++) {
-     console.log(`${inningArr[i]}th inning: ${awayTeam} - ${homeTeam}`)
     
-   }
-   return 
+     console.log(`${inningArr[i]}th inning: ${updatingHome[i]} - ${updatingAway[i]}`)
+  }
+  return
+} 
+  
+   
+   
+    
               
 
-}
-console.log(scoreboard(9, inning))
+
+scoreboard(8, inning)
 
 
