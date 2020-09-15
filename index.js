@@ -80,25 +80,25 @@ finalScore(inning, 9) might return:
 */ 
 
 
-function finalScore(numInnings, cbInning){
-  let homeTeam = 0;
-  let awayTeam = 0;
-  for(i = 0; i < numInnings; i ++) {
-    homeTeam  += cbInning()
+// function finalScore(numInnings, cbInning){
+//   let homeTeam = 0;
+//   let awayTeam = 0;
+//   for(i = 0; i < numInnings; i ++) {
+//     homeTeam  += cbInning()
     
-  }
-  for(i = 0; i < numInnings; i ++) {
-    awayTeam  += cbInning()
+//   }
+//   for(i = 0; i < numInnings; i ++) {
+//     awayTeam  += cbInning()
     
-  }
+//   }
   
-  return {
-    home: homeTeam, 
-    away: awayTeam,
-  }
+//   return {
+//     home: homeTeam, 
+//     away: awayTeam,
+//   }
 
-}
-console.log(finalScore(9, inning))
+// }
+// console.log(finalScore(9, inning))
 
   
 
@@ -135,8 +135,40 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard() {
-  /* CODE HERE */
+
+function scoreboard(numInnings, cbInning){
+  let homeTeam = 0;
+  let awayTeam = 0;
+  let totalInnings = 0;
+  let updatingHome = [];
+  let updatingAway = [];
+  let inningArr = [];
+ 
+  for(i = 0; i < numInnings; i ++) {
+    totalInnings ++
+    homeTeam  += cbInning()
+    inningArr.unshift(totalInnings)
+    updatingHome.unshift(homeTeam)
+   
+    
+  }
+  for(i = 0; i < numInnings; i ++) {
+    totalInnings ++
+    awayTeam  += cbInning()
+    updatingAway.unshift(awayTeam)
+    console.log(awayTeam)
+    
+  }
+  
+  
+   for(i = 0; i < numInnings; i ++) {
+     console.log(`${inningArr[i]}th inning: ${awayTeam} - ${homeTeam}`)
+    
+   }
+   return 
+              
+
 }
+console.log(scoreboard(9, inning))
 
 
